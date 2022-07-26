@@ -1,20 +1,20 @@
 import React, {createContext, useCallback, useState} from 'react';
 import api from '../services/api'
 
-export const GithubContext = createContext({
+export const  GithubContext = createContext({
     loading:false,
     user:{},
     repositories:[],
-    starred:[]
+    starred:[],
 });
-
 
 const GithubProvider = ({children})=> {
   
-    
     const [githubState, setGithubState] = useState({
+        hasUser:false,
         loading: false,
         user:{
+            avatar: undefined,
             login:undefined,
             name:undefined,
             html_url:undefined,
@@ -30,26 +30,41 @@ const GithubProvider = ({children})=> {
     });
 
     const getUser =  (username)=>{
-        api.get(`users/${username}`).then( ({data: {user}}) =>{
+        setGithubState(prevState =>({
+            ...prevState,
+            loading: !prevState.loading,
+            })); 
+
+        api.get(`users/${username}`).then( ({data}) =>{ 
+            setGithubState((prevState) => ({
+                ...prevState,
+                hasUser:true,
+                user:{
+                    avatar: data.avatar_url,
+                    login: data.login,
+                    name: data.name,
+                    html_url: data.html_url,
+                    blog: data.blog,
+                    company:data.company,
+                    location : data.location,
+                    followers: data.followers,
+                    following: data.following,
+                    public_gists: data.public_gists,
+                    public_repos: data.public_repos
+                }
+            })
+           ) 
+        }).finally(() =>{
             setGithubState(prevState =>({
                 ...prevState,
-                user:{
-                    login: user.login,
-                    name: user.name,
-                    html_url: user.html_url,
-                    blog: user.blog,
-                    company: user.company,
-                    followers: user.followers,
-                    following: user.following,
-                    public_gists: user.public_gists,
-                    public_repos: user.public_repos 
-            }}))
+                loading: !prevState.loading,
+                })); 
         });
     };
     
     const contextValue = {
         githubState,
-        getUser : useCallback ((username) => getUser(username), []),
+        getUser : useCallback ((username) => getUser (username), []),
     }
     return  (
          <GithubContext.Provider value={contextValue}>

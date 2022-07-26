@@ -1,20 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useGithub from '../../hooks/github-hooks';
 import * as S  from './styled'
 
+
 const  Profile = () => {
 
-    const {githubState} = useGithub()
+    const {githubState} = useGithub();
+
+    useEffect(() => {
+      console.log(githubState.user);
+    }, [githubState.user])
+    
 
   return (<S.Wrapper>
-    <S.WrapperImage src="https://avatars.githubusercontent.com/u/80289718?v=4" alt="profile" />
+    <S.WrapperImage src={githubState.user.avatar} alt="profile" />
     <S.WrapperInfoUser>
     <div>
     <h1>{githubState.user.name} </h1>
-    <S.WrapperUserName>
+    <S.WrapperUserGeneric>
         <h3>Username: </h3>
-        <a href= {githubState.user.html_url} target="_blank" rel="noreferrer"></a>
-    </S.WrapperUserName>
+        <a href= {githubState.user.html_url} target="_blank" rel="noreferrer">{githubState.user.login}</a>
+    </S.WrapperUserGeneric>
+    <S.WrapperUserGeneric>
+        <h3>Company: </h3>
+       <span>{githubState.user.company}</span>
+    </S.WrapperUserGeneric>
+    <S.WrapperUserGeneric>
+        <h3>Location: </h3>
+       <span>{githubState.user.location}</span>
+    </S.WrapperUserGeneric>
+    <S.WrapperUserGeneric>
+        <h3>Blog: </h3>
+       <a href={githubState.user.blog} target="_blank" rel="noreferrer">{githubState.user.blog}</a>
+    </S.WrapperUserGeneric>
     </div>
     <S.WrapperStatusCount>
         <div>
