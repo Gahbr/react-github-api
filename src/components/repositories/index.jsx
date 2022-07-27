@@ -36,7 +36,7 @@ const  Repositories = () => {
         <RepositoryItem 
         key={item.id}
         name={item.name}
-        linkToRepo={item.full_name}
+        linkToRepo={item.html_url}
         fullName = {item.full_name}
         />
       ))} 
@@ -49,7 +49,7 @@ const  Repositories = () => {
         <RepositoryItem 
         key={item.id}
         name={item.name}
-        linkToRepo={item.full_name}
+        linkToRepo={item.html_url}
         fullName = {item.full_name}
         />
       ))} 
