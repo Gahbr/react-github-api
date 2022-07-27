@@ -43,7 +43,6 @@ WrapperTab.tabsRole = "Tab";
 export const WrapperTabPanel = styled(TabPanel)`
     display: none;
     padding: 16px;
-    border: 1px solid #ccc;
     margin-top: -5px;
 
     &.is-selected{
@@ -53,3 +52,8 @@ export const WrapperTabPanel = styled(TabPanel)`
 `;
 WrapperTabPanel.tabsRole = "TabPanel";
 
+export const WrapperList = styled.div `
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+`
