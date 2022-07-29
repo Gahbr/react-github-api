@@ -9,6 +9,16 @@ export const Wrapper = styled.div`
     height: 150px;
    align-content: center;
 
+    // Media Queries
+    @media (max-width: 830px){ width: 250px; }
+    @media (max-width: 630px){
+        width: 180px;
+        h2{font-size:14px}
+        a{font-size:14px}
+        word-wrap: break-word;
+    }
+    @media (max-width: 490px){ width: 140px; }
+    @media (max-width: 410px){ width: 100px; height:200px; h2{font-size:12px} a{font-size:12px}}
 `
 
 export const WrapperTitle = styled.h2`
