@@ -45,8 +45,8 @@ export const WrapperTitle = styled.h1`
   align-items: center;
 
   img {
-    max-width: 5%;
-    height: auto;
+    max-width: 100%;
+    height: 60px;
     align-items: center;
   }
 `;

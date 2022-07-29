@@ -4,6 +4,14 @@ export const Wrapper = styled.div`
     display: flex;
     align-items: flex-start;
     padding-top: 30px;
+
+    @media (max-width: 625px){
+       img { width:150px }
+    }
+    @media (max-width: 500px){
+      display:block;
+      img{  padding-bottom:20px}
+    }
 `;
 
 export const WrapperStatusCount = styled.div`
@@ -14,6 +22,7 @@ export const WrapperStatusCount = styled.div`
         text-align: center
     }
 `;
+
 export const WrapperUserGeneric = styled.div`
     display: flex;
     align-items: center;
@@ -49,6 +58,13 @@ export const WrapperInfoUser = styled.div`
     h4 { 
         font-size:16px;
         font-weight:bold;
+    }
+
+    @media (max-width: 625px){
+       h1 { font-size: 20px; }
+       h3 { font-size: 14px;}
+       h4 { font-size:12px }
+       a { font-size: 14px; }
     }
 `;
 
