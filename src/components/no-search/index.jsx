@@ -3,7 +3,7 @@ import * as S from './styled'
 
 const NoSearch = () => {
   return (
-    <S.Wrapper> <h1>Nenhum usuário pesquisado!</h1></S.Wrapper>
+    <S.Wrapper> <h1>User not found!</h1></S.Wrapper>
   )
 }
 

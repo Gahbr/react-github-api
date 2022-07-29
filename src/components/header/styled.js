@@ -32,7 +32,10 @@ export const Wrapper = styled.div`
       font-weight: bold;
       color: #ffff;
     }
+    
   }
+  @media (max-width:440px){ input {font-size:12px}}
+  @media (max-width:380px){ input {font-size:11px}}
 `;
 
 export const WrapperTitle = styled.h1`

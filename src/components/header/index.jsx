@@ -18,7 +18,7 @@ const Header = () => {
         <input
           type="text"
           onChange={(event) => setUsenameForSearch(event.target.value)}
-          placeholder="Digite o nome do usuário para pesquisa"
+          placeholder="Please, enter a valid Github username"
           
         />
         <button type="submit" onClick={submitGetUser}>
