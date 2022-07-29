@@ -11,4 +11,9 @@ export const Wrapper = styled.div `
         justify-content: center;
     }
 
+    @media (max-width: 482px) {
+      h1{
+        font-size: 24px;
+      }
+    }
 `;

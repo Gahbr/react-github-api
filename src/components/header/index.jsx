@@ -13,6 +13,7 @@ const Header = () => {
   };
   return (
     <header>
+      <S.WrapperTitle> <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="git logo"/> API Interface</S.WrapperTitle>
       <S.Wrapper>
         <input
           type="text"
